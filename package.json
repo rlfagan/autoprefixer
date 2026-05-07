@@ -1,20 +1,51 @@
 {
-  "name": "autoprefixer",
-  "version": "10.5.0",
-  "description": "Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website",
-  "keywords": [
-    "autoprefixer",
-    "css",
-    "postcss",
-    "postcss-plugin",
-    "prefix"
-  ],
+  "author": "Andrey Sitnik <andrey@sitnik.es>",
+  "bin": "bin/autoprefixer",
   "bugs": {
     "url": "https://github.com/postcss/autoprefixer/issues"
   },
-  "license": "MIT",
-  "author": "Andrey Sitnik <andrey@sitnik.es>",
-  "repository": "postcss/autoprefixer",
+  "c8": {
+    "check-coverage": true,
+    "clean": true,
+    "exclude": [
+      "test/*"
+    ],
+    "lines": 100,
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "skip-full": true
+  },
+  "clean-publish": {
+    "cleanDocs": true
+  },
+  "dependencies": {
+    "browserslist": "^4.28.2",
+    "caniuse-lite": "^1.0.30001787",
+    "fraction.js": "^5.3.4",
+    "picocolors": "^1.1.1",
+    "postcss-value-parser": "^4.2.0"
+  },
+  "description": "Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website",
+  "devDependencies": {
+    "@logux/oxc-configs": "^0.3.3",
+    "@size-limit/preset-small-lib": "12.1.0",
+    "actions-up": "^1.13.0",
+    "c8": "^11.0.0",
+    "clean-publish": "^6.0.5",
+    "eslint-plugin-prefer-let": "^4.2.2",
+    "nanospy": "^1.0.0",
+    "oxlint": "^1.60.0",
+    "oxlint-tsgolint": "^0.20.0",
+    "postcss": "^7.0.36",
+    "size-limit": "^12.1.0",
+    "typescript": "^6.0.2",
+    "uvu": "^0.5.6"
+  },
+  "engines": {
+    "node": "^10 || ^12 || >=14"
+  },
   "funding": [
     {
       "type": "opencollective",
@@ -29,68 +60,37 @@
       "url": "https://github.com/sponsors/ai"
     }
   ],
-  "bin": "bin/autoprefixer",
-  "main": "lib/autoprefixer.js",
-  "types": "lib/autoprefixer.d.ts",
-  "scripts": {
-    "unit": "uvu . '\\.test\\.js$'",
-    "test:coverage": "c8 node node_modules/uvu/bin.js . '\\.test\\.js$'",
-    "test:lint": "oxlint . bin/*",
-    "test:size": "size-limit",
-    "test": "pnpm run /^test:/"
-  },
-  "dependencies": {
-    "browserslist": "^4.28.2",
-    "caniuse-lite": "^1.0.30001787",
-    "fraction.js": "^5.3.4",
-    "picocolors": "^1.1.1",
-    "postcss-value-parser": "^4.2.0"
-  },
-  "devDependencies": {
-    "@logux/oxc-configs": "^0.3.3",
-    "@size-limit/preset-small-lib": "12.1.0",
-    "actions-up": "^1.13.0",
-    "c8": "^11.0.0",
-    "clean-publish": "^6.0.5",
-    "eslint-plugin-prefer-let": "^4.2.2",
-    "nanospy": "^1.0.0",
-    "oxlint": "^1.60.0",
-    "oxlint-tsgolint": "^0.20.0",
-    "postcss": "^8.5.9",
-    "size-limit": "^12.1.0",
-    "typescript": "^6.0.2",
-    "uvu": "^0.5.6"
-  },
-  "peerDependencies": {
-    "postcss": "^8.1.0"
-  },
-  "size-limit": [
-    {
-      "limit": "70 KB"
-    }
+  "keywords": [
+    "autoprefixer",
+    "css",
+    "postcss",
+    "postcss-plugin",
+    "prefix"
   ],
-  "c8": {
-    "check-coverage": true,
-    "clean": true,
-    "exclude": [
-      "test/*"
-    ],
-    "lines": 100,
-    "reporter": [
-      "text",
-      "lcov"
-    ],
-    "skip-full": true
-  },
-  "engines": {
-    "node": "^10 || ^12 || >=14"
+  "license": "MIT",
+  "main": "lib/autoprefixer.js",
+  "name": "autoprefixer",
+  "peerDependencies": {
+    "postcss": "^7.0.36"
   },
   "pnpm": {
     "patchedDependencies": {
       "yargs@17.7.2": "patches/yargs@17.7.2.patch"
     }
   },
-  "clean-publish": {
-    "cleanDocs": true
-  }
+  "repository": "postcss/autoprefixer",
+  "scripts": {
+    "test": "pnpm run /^test:/",
+    "test:coverage": "c8 node node_modules/uvu/bin.js . '\\.test\\.js$'",
+    "test:lint": "oxlint . bin/*",
+    "test:size": "size-limit",
+    "unit": "uvu . '\\.test\\.js$'"
+  },
+  "size-limit": [
+    {
+      "limit": "70 KB"
+    }
+  ],
+  "types": "lib/autoprefixer.d.ts",
+  "version": "10.5.0"
 }
